@@ -13,6 +13,7 @@ import { GameStatusContext } from "../../providers/GameStatusProvider";
 import GameControlButtonsPanel from "../GameControlButtonsPanel";
 
 import ViewResultsModal from "../modals/ViewResultsModal";
+import ShareButton from "../ShareButton";
 
 function Game() {
   const { gameData, categorySize, numCategories } =
@@ -104,7 +105,15 @@ function Game() {
             />
           </>
         ) : (
-          <ViewResultsModal />
+          <>
+            <ViewResultsModal />
+            <div className="flex justify-center">
+              <ShareButton
+                score={submittedGuesses.length}
+                visible={isGameWon} 
+              />
+            </div>
+          </>
         )}
       </div>
     </>
